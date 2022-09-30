@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dural_API_GRID</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class = "container-lg">
+        <h1><center>GEOLOGICAL INFO</center></h1>
+    <div class="City_design">
+        <div class="col-sm-12" style="background-color:red;">
+            <h2><center>City:<span id = "city"></span><br /></center></h2>
+        </div>
+
+        <div class="country_design">
+            <div class="col-sm-12" style="background-color:orange;">
+                <h2><center>Country:<span id = "country"></span><br /></center></h2>
+            </div>
+    
+    <div class="Org_design">
+            <div class="col-sm-12" style="background-color:burlywood;">
+                <h2><center>Organization: <span id = "org"></center></span><br /></h2>
+            </div>
+
+    <div class="Time_design">
+        <div class="col-sm-12" style="background-color:yellow;">
+            <h2><center>Timezone:  <span id = "timezone"></span><br /></center></h2>
+        </div>
+    </div>
+
+
+</body>
+<script type ="text/javascript">
+    async function RandAPI(){
+        const display = await fetch ("https://ipinfo.io/161.185.160.93/geo")
+        const data = await display.json();
+        const {city, country, org, timezone} = data;
+
+        document.getElementById('city').textContent = city;
+        document.getElementById('country').textContent = country;
+        document.getElementById('org').textContent = org;
+        document.getElementById('timezone').textContent = timezone;
+    }
+    RandAPI();
+
+
+</script>
+</html>
